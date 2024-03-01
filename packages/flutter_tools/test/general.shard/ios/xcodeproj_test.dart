@@ -14,6 +14,7 @@ import 'package:flutter_tools/src/ios/xcode_build_settings.dart';
 import 'package:flutter_tools/src/ios/xcodeproj.dart';
 import 'package:flutter_tools/src/project.dart';
 import 'package:flutter_tools/src/reporting/reporting.dart';
+import 'package:unified_analytics/unified_analytics.dart';
 
 import '../../src/common.dart';
 import '../../src/context.dart';
@@ -72,6 +73,7 @@ void main() {
       platform: platform,
       processManager: fakeProcessManager,
       usage: TestUsage(),
+      analytics: NoOpAnalytics(),
     );
   });
 
@@ -184,6 +186,7 @@ void main() {
       platform: platform,
       processManager: fakeProcessManager,
       usage: TestUsage(),
+      analytics: NoOpAnalytics(),
     );
     fileSystem.file(xcodebuild).deleteSync();
 
@@ -510,6 +513,7 @@ void main() {
       platform: platform,
       processManager: fakeProcessManager,
       usage: TestUsage(),
+      analytics: NoOpAnalytics(),
     );
 
     expect(await xcodeProjectInterpreter.getInfo(workingDirectory), isNotNull);
@@ -536,6 +540,7 @@ void main() {
       platform: platform,
       processManager: fakeProcessManager,
       usage: TestUsage(),
+      analytics: NoOpAnalytics(),
     );
 
     expect(() => xcodeProjectInterpreter.getInfo(workingDirectory), throwsToolExit(message: stderr));
@@ -562,6 +567,7 @@ void main() {
       platform: platform,
       processManager: fakeProcessManager,
       usage: TestUsage(),
+      analytics: NoOpAnalytics(),
     );
 
     expect(() => xcodeProjectInterpreter.getInfo(workingDirectory), throwsToolExit(message: stderr));
@@ -754,7 +760,7 @@ Information about project "Runner":
 
     setUp(() {
       fs = MemoryFileSystem.test();
-      localIosArtifacts = Artifacts.test(localEngine: 'out/ios_profile_arm64');
+      localIosArtifacts = Artifacts.testLocalEngine(localEngine: 'out/ios_profile_arm64', localEngineHost: 'out/host_release');
       macOS = FakePlatform(operatingSystem: 'macos');
       fs.file(xcodebuild).createSync(recursive: true);
     });
@@ -938,7 +944,7 @@ Build settings for action build and target plugin2:
     }
 
     testUsingOsxContext('exits when armv7 local engine is set', () async {
-      localIosArtifacts = Artifacts.test(localEngine: 'out/ios_profile_arm');
+      localIosArtifacts = Artifacts.testLocalEngine(localEngine: 'out/ios_profile_arm', localEngineHost: 'out/host_release');
       const BuildInfo buildInfo = BuildInfo.debug;
       final FlutterProject project = FlutterProject.fromDirectoryTest(fs.directory('path/to/project'));
       await expectLater(() =>
@@ -971,7 +977,7 @@ Build settings for action build and target plugin2:
       final String buildPhaseScriptContents = buildPhaseScript.readAsStringSync();
       expect(buildPhaseScriptContents.contains('export "ARCHS=arm64"'), isTrue);
     }, overrides: <Type, Generator>{
-      Artifacts: () => Artifacts.test(localEngine: 'out/host_profile_arm64'),
+      Artifacts: () => Artifacts.testLocalEngine(localEngine: 'out/host_profile_arm64', localEngineHost: 'out/host_release'),
       Platform: () => macOS,
       FileSystem: () => fs,
       ProcessManager: () => FakeProcessManager.any(),
@@ -998,7 +1004,7 @@ Build settings for action build and target plugin2:
       final String buildPhaseScriptContents = buildPhaseScript.readAsStringSync();
       expect(buildPhaseScriptContents.contains('export "ARCHS=x86_64"'), isTrue);
     }, overrides: <Type, Generator>{
-      Artifacts: () => Artifacts.test(localEngine: 'out/host_profile'),
+      Artifacts: () => Artifacts.testLocalEngine(localEngine: 'out/host_profile', localEngineHost: 'out/host_release'),
       Platform: () => macOS,
       FileSystem: () => fs,
       ProcessManager: () => FakeProcessManager.any(),
@@ -1083,7 +1089,7 @@ Build settings for action build and target plugin2:
         final String buildPhaseScriptContents = buildPhaseScript.readAsStringSync();
         expect(buildPhaseScriptContents.contains('ARCHS=x86_64'), isTrue);
       }, overrides: <Type, Generator>{
-        Artifacts: () => Artifacts.test(localEngine: 'out/ios_debug_sim_unopt'),
+        Artifacts: () => Artifacts.testLocalEngine(localEngine: 'out/ios_debug_sim_unopt', localEngineHost: 'out/host_debug_unopt'),
         Platform: () => macOS,
         FileSystem: () => fs,
         ProcessManager: () => FakeProcessManager.any(),
@@ -1109,7 +1115,7 @@ Build settings for action build and target plugin2:
         final String buildPhaseScriptContents = buildPhaseScript.readAsStringSync();
         expect(buildPhaseScriptContents.contains('ARCHS=arm64'), isTrue);
       }, overrides: <Type, Generator>{
-        Artifacts: () => Artifacts.test(localEngine: 'out/ios_debug_sim_arm64'),
+        Artifacts: () => Artifacts.testLocalEngine(localEngine: 'out/ios_debug_sim_arm64', localEngineHost: 'out/host_debug_unopt'),
         Platform: () => macOS,
         FileSystem: () => fs,
         ProcessManager: () => FakeProcessManager.any(),

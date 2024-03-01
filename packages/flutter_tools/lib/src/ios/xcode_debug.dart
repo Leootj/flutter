@@ -6,7 +6,14 @@ import 'dart:async';
 
 import 'package:meta/meta.dart';
 import 'package:process/process.dart';
+<<<<<<< HEAD
 
+=======
+import 'package:xml/xml.dart';
+import 'package:xml/xpath.dart';
+
+import '../base/common.dart';
+>>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
 import '../base/error_handling_io.dart';
 import '../base/file_system.dart';
 import '../base/io.dart';
@@ -58,7 +65,10 @@ class XcodeDebug {
     required String deviceId,
     required List<String> launchArguments,
   }) async {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
     // If project is not already opened in Xcode, open it.
     if (!await _isProjectOpenInXcode(project: project)) {
       final bool openResult = await _openProjectInXcode(xcodeWorkspace: project.xcodeWorkspace);
@@ -411,6 +421,52 @@ class XcodeDebug {
       verboseLogging: verboseLogging,
     );
   }
+<<<<<<< HEAD
+=======
+
+  /// Ensure the Xcode project is set up to launch an LLDB debugger. If these
+  /// settings are not set, the launch will fail with a "Cannot create a
+  /// FlutterEngine instance in debug mode without Flutter tooling or Xcode."
+  /// error message. These settings should be correct by default, but some users
+  /// reported them not being so after upgrading to Xcode 15.
+  void ensureXcodeDebuggerLaunchAction(File schemeFile) {
+    if (!schemeFile.existsSync()) {
+      _logger.printError('Failed to find ${schemeFile.path}');
+      return;
+    }
+
+    final String schemeXml = schemeFile.readAsStringSync();
+    try {
+      final XmlDocument document = XmlDocument.parse(schemeXml);
+      final Iterable<XmlNode> nodes = document.xpath('/Scheme/LaunchAction');
+      if (nodes.isEmpty) {
+        _logger.printError('Failed to find LaunchAction for the Scheme in ${schemeFile.path}.');
+        return;
+      }
+      final XmlNode launchAction = nodes.first;
+      final XmlAttribute? debuggerIdentifer = launchAction.attributes
+          .where((XmlAttribute attribute) =>
+              attribute.localName == 'selectedDebuggerIdentifier')
+          .firstOrNull;
+      final XmlAttribute? launcherIdentifer = launchAction.attributes
+          .where((XmlAttribute attribute) =>
+              attribute.localName == 'selectedLauncherIdentifier')
+          .firstOrNull;
+      if (debuggerIdentifer == null ||
+          launcherIdentifer == null ||
+          !debuggerIdentifer.value.contains('LLDB') ||
+          !launcherIdentifer.value.contains('LLDB')) {
+        throwToolExit('''
+Your Xcode project is not setup to start a debugger. To fix this, launch Xcode
+and select "Product > Scheme > Edit Scheme", select "Run" in the sidebar,
+and ensure "Debug executable" is checked in the "Info" tab.
+''');
+      }
+    } on XmlException catch (exception) {
+      _logger.printError('Failed to parse ${schemeFile.path}: $exception');
+    }
+  }
+>>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
 }
 
 @visibleForTesting
