@@ -1052,7 +1052,42 @@ void main() {
     expect(insideHighContrast, true);
   });
 
+<<<<<<< HEAD
   testWidgets('MediaQuery.boldTextOf', (WidgetTester tester) async {
+=======
+<<<<<<< HEAD
+  testWidgets('MediaQuery.boldTextOf', (WidgetTester tester) async {
+=======
+  testWidgetsWithLeakTracking('MediaQuery.onOffSwitchLabelsOf', (WidgetTester tester) async {
+    late bool outsideOnOffSwitchLabels;
+    late bool insideOnOffSwitchLabels;
+
+    await tester.pumpWidget(
+      Builder(
+        builder: (BuildContext context) {
+          outsideOnOffSwitchLabels = MediaQuery.onOffSwitchLabelsOf(context);
+          return MediaQuery(
+            data: const MediaQueryData(
+              onOffSwitchLabels: true,
+            ),
+            child: Builder(
+              builder: (BuildContext context) {
+                insideOnOffSwitchLabels = MediaQuery.onOffSwitchLabelsOf(context);
+                return Container();
+              },
+            ),
+          );
+        },
+      ),
+    );
+
+    expect(outsideOnOffSwitchLabels, false);
+    expect(insideOnOffSwitchLabels, true);
+  });
+
+  testWidgetsWithLeakTracking('MediaQuery.boldTextOf', (WidgetTester tester) async {
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     late bool outsideBoldTextOverride;
     late bool insideBoldTextOverride;
 

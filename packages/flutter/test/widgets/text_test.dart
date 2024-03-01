@@ -265,7 +265,15 @@ void main() {
     expect(renderText.size.height, singleLineHeight * textScaleFactor * 3);
   });
 
+<<<<<<< HEAD
   testWidgets("Inline widgets' scaled sizes are constrained", (WidgetTester tester) async {
+=======
+<<<<<<< HEAD
+  testWidgets("Inline widgets' scaled sizes are constrained", (WidgetTester tester) async {
+=======
+  testWidgetsWithLeakTracking("Inline widgets' scaled sizes are constrained", (WidgetTester tester) async {
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     // Regression test for https://github.com/flutter/flutter/issues/130588
     await tester.pumpWidget(
       const Directionality(
@@ -282,7 +290,15 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+<<<<<<< HEAD
   testWidgets('semanticsLabel can override text label', (WidgetTester tester) async {
+=======
+<<<<<<< HEAD
+  testWidgets('semanticsLabel can override text label', (WidgetTester tester) async {
+=======
+  testWidgetsWithLeakTracking('semanticsLabel can override text label', (WidgetTester tester) async {
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     final SemanticsTester semantics = SemanticsTester(tester);
     await tester.pumpWidget(
       const Text(

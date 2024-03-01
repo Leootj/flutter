@@ -781,6 +781,7 @@ void main() {
   });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   group('Adding/removing overlay child causes repaint', () {
     // Regression test for https://github.com/flutter/flutter/issues/134656.
@@ -843,6 +844,12 @@ void main() {
 
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
   testWidgets('Adding/Removing OverlayPortal in LayoutBuilder during layout', (WidgetTester tester) async {
+=======
+  testWidgets('Adding/Removing OverlayPortal in LayoutBuilder during layout', (WidgetTester tester) async {
+=======
+  testWidgetsWithLeakTracking('Adding/Removing OverlayPortal in LayoutBuilder during layout', (WidgetTester tester) async {
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     final GlobalKey widgetKey = GlobalKey(debugLabel: 'widget');
     final GlobalKey overlayKey = GlobalKey(debugLabel: 'overlay');
     controller1.hide();
@@ -851,7 +858,11 @@ void main() {
 =======
     late final OverlayEntry overlayEntry;
     addTearDown(() => overlayEntry..remove()..dispose());
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     Size size = Size.zero;
 
     final Widget overlayPortal = OverlayPortal(
@@ -871,7 +882,11 @@ void main() {
             OverlayEntry(
 =======
             overlayEntry = OverlayEntry(
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
               builder: (BuildContext context) {
                 return StatefulBuilder(
                   builder: (BuildContext context, StateSetter stateSetter) {

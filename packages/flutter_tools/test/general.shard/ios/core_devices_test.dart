@@ -8,7 +8,11 @@ import 'package:flutter_tools/src/base/file_system.dart';
 <<<<<<< HEAD
 =======
 import 'package:flutter_tools/src/base/io.dart';
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
 import 'package:flutter_tools/src/base/logger.dart';
 import 'package:flutter_tools/src/base/version.dart';
 import 'package:flutter_tools/src/ios/core_devices.dart';
@@ -43,7 +47,11 @@ void main() {
         processManager: FakeProcessManager.any(),
 =======
         processManager: fakeProcessManager,
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
         xcodeProjectInterpreter: xcodeProjectInterpreter,
       );
       deviceControl = IOSCoreDeviceControl(
@@ -97,7 +105,11 @@ void main() {
 <<<<<<< HEAD
 =======
       // TODO(fujino): make this FakeProcessManager.empty()
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
       xcode = Xcode.test(processManager: FakeProcessManager.any());
       deviceControl = IOSCoreDeviceControl(
         logger: logger,
@@ -1367,7 +1379,11 @@ invalid JSON
         expect(fakeProcessManager, hasNoRemainingExpectations);
       });
 
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
       testWithoutContext('No devices', () async {
         const String deviceControlOutput = '''
 {

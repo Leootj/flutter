@@ -697,6 +697,11 @@ class IOSDevice extends Device {
           }
         } else {
           localUri = await vmServiceDiscovery?.uri;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
           // If the `ios-deploy` debugger loses connection before it finds the
           // Dart Service VM url, try starting the debugger and launching the
           // app again.
@@ -723,7 +728,11 @@ class IOSDevice extends Device {
             }
             localUri = await vmServiceDiscovery.uri;
           }
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
         }
       }
       timer.cancel();
@@ -805,7 +814,11 @@ class IOSDevice extends Device {
     );
   }
 
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
   /// Starting with Xcode 15 and iOS 17, `ios-deploy` stopped working due to
   /// the new CoreDevice connectivity stack. Previously, `ios-deploy` was used
   /// to install the app, launch the app, and start `debugserver`.

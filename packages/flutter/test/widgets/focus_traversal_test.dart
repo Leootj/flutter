@@ -95,7 +95,11 @@ void main() {
       expect(scope.hasFocus, isTrue);
     });
 
+<<<<<<< HEAD
     testWidgets('focus traversal should work case 1', (WidgetTester tester) async {
+=======
+    testWidgetsWithLeakTracking('focus traversal should work case 1', (WidgetTester tester) async {
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
       final FocusNode outer1 = FocusNode(debugLabel: 'outer1', skipTraversal: true);
       final FocusNode outer2 = FocusNode(debugLabel: 'outer2', skipTraversal: true);
       final FocusNode inner1 = FocusNode(debugLabel: 'inner1', );
@@ -151,7 +155,11 @@ void main() {
       expect(FocusManager.instance.primaryFocus, inner2);
     });
 
+<<<<<<< HEAD
     testWidgets('focus traversal should work case 2', (WidgetTester tester) async {
+=======
+    testWidgetsWithLeakTracking('focus traversal should work case 2', (WidgetTester tester) async {
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
       final FocusNode outer1 = FocusNode(debugLabel: 'outer1', skipTraversal: true);
       final FocusNode outer2 = FocusNode(debugLabel: 'outer2', skipTraversal: true);
       final FocusNode inner1 = FocusNode(debugLabel: 'inner1', );
@@ -202,7 +210,11 @@ void main() {
       expect(FocusManager.instance.primaryFocus, inner2);
     });
 
+<<<<<<< HEAD
     testWidgets('Move focus to next node.', (WidgetTester tester) async {
+=======
+    testWidgetsWithLeakTracking('Move focus to next node.', (WidgetTester tester) async {
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
       final GlobalKey key1 = GlobalKey(debugLabel: '1');
       final GlobalKey key2 = GlobalKey(debugLabel: '2');
       final GlobalKey key3 = GlobalKey(debugLabel: '3');

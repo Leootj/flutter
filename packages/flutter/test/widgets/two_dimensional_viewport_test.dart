@@ -191,7 +191,15 @@ void main() {
         );
       });
 
+<<<<<<< HEAD
       testWidgets('throws an error when builder throws', (WidgetTester tester) async {
+=======
+<<<<<<< HEAD
+      testWidgets('throws an error when builder throws', (WidgetTester tester) async {
+=======
+      testWidgetsWithLeakTracking('throws an error when builder throws', (WidgetTester tester) async {
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
         final List<Object> exceptions = <Object>[];
         final FlutterExceptionHandler? oldHandler = FlutterError.onError;
         FlutterError.onError = (FlutterErrorDetails details) {

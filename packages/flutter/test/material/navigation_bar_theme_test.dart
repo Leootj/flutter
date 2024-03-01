@@ -218,7 +218,11 @@ void main() {
     await expectLater(find.byType(NavigationBar), matchesGoldenFile('indicator_custom_label_style.png'));
   });
 
+<<<<<<< HEAD
   testWidgets('NavigationBar respects NavigationBarTheme.overlayColor in active/pressed/hovered states', (WidgetTester tester) async {
+=======
+  testWidgetsWithLeakTracking('NavigationBar respects NavigationBarTheme.overlayColor in active/pressed/hovered states', (WidgetTester tester) async {
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     tester.binding.focusManager.highlightStrategy = FocusHighlightStrategy.alwaysTraditional;
     const Color hoverColor = Color(0xff0000ff);
     const Color focusColor = Color(0xff00ffff);

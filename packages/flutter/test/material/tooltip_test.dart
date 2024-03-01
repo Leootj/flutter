@@ -2856,7 +2856,15 @@ void main() {
     expect(element.dirty, isFalse);
   });
 
+<<<<<<< HEAD
   testWidgets('Tooltip does not initialize animation controller in dispose process', (WidgetTester tester) async {
+=======
+<<<<<<< HEAD
+  testWidgets('Tooltip does not initialize animation controller in dispose process', (WidgetTester tester) async {
+=======
+  testWidgetsWithLeakTracking('Tooltip does not initialize animation controller in dispose process', (WidgetTester tester) async {
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     await tester.pumpWidget(
       const MaterialApp(
         home: Center(
@@ -2885,7 +2893,15 @@ void main() {
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
   });
 
+<<<<<<< HEAD
   testWidgets('Tooltip does not crash when showing the tooltip but the OverlayPortal is unmounted, during dispose', (WidgetTester tester) async {
+=======
+<<<<<<< HEAD
+  testWidgets('Tooltip does not crash when showing the tooltip but the OverlayPortal is unmounted, during dispose', (WidgetTester tester) async {
+=======
+  testWidgetsWithLeakTracking('Tooltip does not crash when showing the tooltip but the OverlayPortal is unmounted, during dispose', (WidgetTester tester) async {
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     await tester.pumpWidget(
       const MaterialApp(
         home: SelectionArea(

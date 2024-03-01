@@ -978,7 +978,11 @@ class StartupTest {
             'screenshot_startup_${DateTime.now().toLocal().toIso8601String()}.png',
           );
         });
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
         final int result = await flutter(
           'run',
           options: <String>[
@@ -992,7 +996,11 @@ class StartupTest {
             // TODO(vashworth): Remove once done debugging https://github.com/flutter/flutter/issues/129836
             if (device is IosDevice)
               '--verbose-system-logs',
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
             '--target=$target',
             '-d',
             device.deviceId,
@@ -1005,7 +1013,11 @@ class StartupTest {
 <<<<<<< HEAD
 =======
         timer.cancel();
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
         if (result == 0) {
           final Map<String, dynamic> data = json.decode(
             file('${_testOutputDirectory(testDirectory)}/start_up_info.json').readAsStringSync(),

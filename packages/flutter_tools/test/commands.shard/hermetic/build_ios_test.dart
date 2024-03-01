@@ -766,10 +766,17 @@ void main() {
         throwsToolExit(),
       );
 
+<<<<<<< HEAD
       expect(logger.errorText, contains("Use of undeclared identifier 'asdas'"));
       expect(logger.errorText, contains('/Users/m/Projects/test_create/ios/Runner/AppDelegate.m:7:56'));
       expect(logger.statusText, isNot(contains("Xcode's output")));
       expect(logger.statusText, isNot(contains('Lots of spew from Xcode')));
+=======
+      expect(testLogger.errorText, contains("Use of undeclared identifier 'asdas'"));
+      expect(testLogger.errorText, contains('/Users/m/Projects/test_create/ios/Runner/AppDelegate.m:7:56'));
+      expect(testLogger.errorText, isNot(contains('Command PhaseScriptExecution failed with a nonzero exit code')));
+      expect(testLogger.warningText, isNot(contains('but the range of supported deployment target versions is')));
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     }, overrides: <Type, Generator>{
       FileSystem: () => fileSystem,
       Logger: () => logger,
@@ -983,7 +990,15 @@ void main() {
       ProcessManager: () => FakeProcessManager.list(<FakeCommand>[
         xattrCommand,
         setUpFakeXcodeBuildHandler(exitCode: 1, onRun: () {
+<<<<<<< HEAD
           fileSystem.systemTempDirectory.childDirectory(_xcBundleFilePath).createSync();
+=======
+<<<<<<< HEAD
+          fileSystem.systemTempDirectory.childDirectory(_xcBundleFilePath).createSync();
+=======
+          fileSystem.systemTempDirectory.childDirectory(_xcBundleDirectoryPath).createSync();
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
         }),
         setUpXCResultCommand(stdout: kSampleResultJsonWithActionIssues),
         setUpRsyncCommand(),
@@ -1365,7 +1380,24 @@ Runner requires a provisioning profile. Select a provisioning profile in the Sig
         osUtils: FakeOperatingSystemUtils(),
       );
 
+<<<<<<< HEAD
       processManager.addCommands(<FakeCommand>[
+=======
+      createMinimalMockProjectFiles();
+
+      await expectLater(
+        createTestCommandRunner(command).run(const <String>['build', 'ios', '--simulator', '--no-pub']),
+        throwsToolExit(),
+      );
+
+      expect(testLogger.errorText, contains("Use of undeclared identifier 'asdas'"));
+      expect(testLogger.errorText, contains('/Users/m/Projects/test_create/ios/Runner/AppDelegate.m:7:56'));
+      expect(testLogger.errorText, isNot(contains('Command PhaseScriptExecution failed with a nonzero exit code')));
+      expect(testLogger.warningText, isNot(contains('but the range of supported deployment target versions is')));
+    }, overrides: <Type, Generator>{
+      FileSystem: () => fileSystem,
+      ProcessManager: () => FakeProcessManager.list(<FakeCommand>[
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
         xattrCommand,
         setUpFakeXcodeBuildHandler(
           simulator: true,

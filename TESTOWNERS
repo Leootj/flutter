@@ -213,12 +213,20 @@
 /dev/devicelab/bin/tasks/macos_chrome_dev_mode.dart @zanderso @flutter/tool
 /dev/devicelab/bin/tasks/microbenchmarks_ios.dart @cyanglaz @flutter/engine
 /dev/devicelab/bin/tasks/microbenchmarks_ios_xcode_debug.dart @vashworth @flutter/engine
+<<<<<<< HEAD
 =======
 /dev/devicelab/bin/tasks/microbenchmarks_ios.dart @vashworth @flutter/engine
 /dev/devicelab/bin/tasks/microbenchmarks_ios_xcode_debug.dart @vashworth @flutter/engine
 /dev/devicelab/bin/tasks/native_assets_android.dart @dacoharkes @flutter/android
 /dev/devicelab/bin/tasks/native_assets_ios.dart @dacoharkes @flutter/ios
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+<<<<<<< HEAD
+=======
+/dev/devicelab/bin/tasks/native_assets_ios_simulator.dart @dacoharkes @flutter/ios
+/dev/devicelab/bin/tasks/native_assets_ios.dart @dacoharkes @flutter/ios
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
 /dev/devicelab/bin/tasks/native_platform_view_ui_tests_ios.dart @hellohuanlin @flutter/ios
 /dev/devicelab/bin/tasks/new_gallery_ios__transition_perf.dart @zanderso @flutter/engine
 /dev/devicelab/bin/tasks/new_gallery_skia_ios__transition_perf.dart @zanderso @flutter/engine

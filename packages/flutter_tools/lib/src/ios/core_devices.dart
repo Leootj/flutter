@@ -8,7 +8,11 @@ import 'package:process/process.dart';
 <<<<<<< HEAD
 =======
 import '../base/error_handling_io.dart';
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
 import '../base/file_system.dart';
 import '../base/io.dart';
 import '../base/logger.dart';
@@ -109,7 +113,11 @@ class IOSCoreDeviceControl {
       tempDirectory.deleteSync(recursive: true);
 =======
       ErrorHandlingFileSystem.deleteIfExists(tempDirectory, recursive: true);
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     }
   }
 

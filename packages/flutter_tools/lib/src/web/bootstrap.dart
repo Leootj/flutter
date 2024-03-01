@@ -251,7 +251,11 @@ String generateTestEntrypoint({
     await ui.webOnlyInitializePlatform();
 =======
     await ui_web.bootstrapEngine();
+<<<<<<< HEAD
 >>>>>>> 7482962148e8d758338d8a28f589f317e1e42ba4
+=======
+>>>>>>> 41456452f29d64e8deb623a3c927524bcf9f111b
+>>>>>>> 04a7889c8d77f69f2a57aec3ed76bf0c377a757d
     webGoldenComparator = DefaultWebGoldenComparator(Uri.parse('${Uri.file(absolutePath)}'));
     ui_web.debugOverrideDevicePixelRatio(3.0);
     ui.window.debugPhysicalSizeOverride = const ui.Size(2400, 1800);
